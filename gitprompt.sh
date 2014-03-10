@@ -25,25 +25,25 @@ function git_prompt_dir()
 function git_prompt_config()
 {
   # Colors
-  ResetColor="\[\033[0m\]"            # Text reset
+  ResetColor="\[[0m\]"            # Text reset
 
   # Bold
-  local BoldGreen="\[\033[1;32m\]"    # Green
-  local BoldBlue="\[\033[1;34m\]"     # Blue
+  local BoldGreen="\[[1;32m\]"    # Green
+  local BoldBlue="\[[1;34m\]"     # Blue
 
   # High Intensty
-  local IntenseBlack="\[\033[0;90m\]" # Grey
+  local IntenseBlack="\[[0;90m\]" # Grey
 
   # Bold High Intensty
-  local Magenta="\[\033[1;95m\]"      # Purple
+  local Magenta="\[[1;95m\]"      # Purple
 
   # Regular Colors
-  local Yellow="\[\033[0;33m\]"
-  local Grey='\[\033[37m\]'
-  local Red="\[\033[0;31m\]"
-  local Blue="\[\033[0;34m\]"
-  local Purple="\[\033[0;35m\]"
-  local Teal="\[\033[0;36m\]"
+  local Yellow="\[[0;33m\]"
+  local Grey='\[[37m\]'
+  local Red="\[[0;31m\]"
+  local Blue="\[[0;34m\]"
+  local Purple="\[[0;35m\]"
+  local Teal="\[[0;36m\]"
 
   # Default values for the appearance of the prompt. Configure at will.
   #GIT_PROMPT_PREFIX="⇠ "
@@ -59,8 +59,21 @@ function git_prompt_config()
   GIT_PROMPT_STASHED="⚑"
   GIT_PROMPT_CLEAN="${BoldGreen}✔"
 
+  case `whoami | tr -d '\n'` in
+    mike|dev) GIT_PROMPT_USER= ;;
+    root) GIT_PROMPT_USER="Ω${Grey}:" ;;
+	*) GIT_PROMPT_USER="`whoami | cut -c 1-2`${Grey}:" ;;
+  esac
+
+  case `hostname | tr -d '\n'` in
+	scope) GIT_PROMPT_HOST="Δ" ;;
+	ubuntu-ipt-dev) GIT_PROMPT_HOST="μ" ;;
+	ubuntu-ipt-dev) GIT_PROMPT_HOST="λ" ;;
+	*) GIT_PROMPT_HOST=`hostname | cut -c 1-10` ;;
+  esac
+
   # Various variables you might want for your PS1 prompt instead
-  PROMPT_START="${Teal}λ${Grey} \W "
+  PROMPT_START="${Red}${GIT_PROMPT_USER}${Teal}${GIT_PROMPT_HOST}${Grey} \W "
 
   PROMPT_END="${Teal}❯${ResetColor} "
 
