@@ -68,7 +68,7 @@ function git_prompt_config()
   case `hostname | tr -d '\n'` in
 	scope) GIT_PROMPT_HOST="Δ" ;;
 	ubuntu-ipt-dev) GIT_PROMPT_HOST="μ" ;;
-	ubuntu-ipt-dev) GIT_PROMPT_HOST="λ" ;;
+	twomotorcycles) GIT_PROMPT_HOST="λ" ;;
 	*) GIT_PROMPT_HOST=`hostname | cut -c 1-10` ;;
   esac
 
@@ -147,7 +147,7 @@ function updatePrompt() {
   local -a GitStatus
   GitStatus=($("${__GIT_STATUS_CMD}" 2>/dev/null))
 
-  local GIT_BRANCH=${GitStatus[0]}
+  local GIT_BRANCH=`elipsis "${GitStatus[0]}" 25`
   local GIT_REMOTE=${GitStatus[1]}
   if [[ "." == "$GIT_REMOTE" ]]; then
     unset GIT_REMOTE
