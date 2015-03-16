@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## This is a template. Copy it to ~/.bashrc to use the prompt that follows you
+
+## NOTE -- This is for Local Specific Changes Only!!
+## For changes that persist across ssh, put them in ~/.mikeprompt/common_rc.sh
+
+source ~/.mikeprompt/common_rc.sh
+
+PATH="$PATH:/home/mike/bin"
+
+source /usr/src/git-auto-complete.sh
+__git_complete g __git_main
+unset SSH_ASKPASS
+
+alias yacc=bison
+export MAKEFLAGS="-j8"
+export EDITOR="vim"

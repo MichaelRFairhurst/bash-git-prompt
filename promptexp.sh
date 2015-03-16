@@ -4,6 +4,7 @@ then
 	:
 else
   mkdir ~/.mikeprompt
+  echo -e '"$(printf %q "$(cat ~/.mikeprompt/common_rc.sh)")"' > ~/.mikeprompt/common_rc.sh
   echo -e '"$(printf %q "$(cat ~/.mikeprompt/gitprompt.sh)")"' > ~/.mikeprompt/gitprompt.sh
   echo -e '"$(printf %q "$(cat ~/.mikeprompt/gitstatus.py)")"' > ~/.mikeprompt/gitstatus.py
   echo -e '"$(printf %q "$(cat ~/.mikeprompt/promptexp.sh)")"' > ~/.mikeprompt/promptexp.sh

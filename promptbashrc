@@ -1,5 +1,6 @@
 . ~/.bashrc
-. ~/.mikeprompt/gitprompt.sh
+. ~/.mikeprompt/common_rc.sh
 
 alias ssh='~/.mikeprompt/promptexp.sh ssh'
 alias su='~/.mikeprompt/promptexp.sh su'
+
