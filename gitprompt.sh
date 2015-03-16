@@ -147,7 +147,7 @@ function updatePrompt() {
   local -a GitStatus
   GitStatus=($("${__GIT_STATUS_CMD}" 2>/dev/null))
 
-  local GIT_BRANCH=`elipsis "${GitStatus[0]}" 25`
+  local GIT_BRANCH=`(which elipsis &>/dev/null && elipsis "${GitStatus[0]}" 25) || echo "${GitStatus[0]}"`
   local GIT_REMOTE=${GitStatus[1]}
   if [[ "." == "$GIT_REMOTE" ]]; then
     unset GIT_REMOTE
