@@ -60,14 +60,14 @@ function git_prompt_config()
   GIT_PROMPT_CLEAN="${BoldGreen}✔"
 
   case `whoami | tr -d '\n'` in
-    mike|dev) GIT_PROMPT_USER= ;;
+    mike|dev|mfairhurst) GIT_PROMPT_USER= ;;
     root) GIT_PROMPT_USER="Ω${Grey}:" ;;
 	*) GIT_PROMPT_USER="`whoami | cut -c 1-2`${Grey}:" ;;
   esac
 
   case `hostname | tr -d '\n'` in
 	scope) GIT_PROMPT_HOST="Δ" ;;
-	ubuntu-ipt-dev) GIT_PROMPT_HOST="μ" ;;
+	Michaels-MacBook-Pro.local) GIT_PROMPT_HOST="μ" ;;
 	twomotorcycles) GIT_PROMPT_HOST="λ" ;;
 	*) GIT_PROMPT_HOST=`hostname | cut -c 1-10` ;;
   esac
