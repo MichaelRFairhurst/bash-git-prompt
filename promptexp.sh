@@ -10,6 +10,7 @@ else
   echo -e '"$(printf %q "$(cat ~/.mikeprompt/promptexp.sh)")"' > ~/.mikeprompt/promptexp.sh
   echo -e '"$(printf %q "$(cat ~/.mikeprompt/promptbashrc)")"' > ~/.mikeprompt/promptbashrc
   chmod +x ~/.mikeprompt/promptexp.sh
+  chmod +x ~/.mikeprompt/gitstatus.py
 fi
 bash --rcfile $HOME/.mikeprompt/promptbashrc -i'
 
